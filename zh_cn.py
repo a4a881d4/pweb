@@ -153,6 +153,5 @@ sLang  = """{
   "TEST" : ""
 }"""
 
-def Lang():
-  return json.loads(sLang)
+lang = json.loads(sLang)
   

@@ -1,0 +1,27 @@
+.row-fluid
+  .span12
+    h2.main_board
+      a.side_link.pull-right(href='#', target='_blank') 更多插件
+      | 插件管理
+      a.side_link(href='javascript:show_float_box("上传插件" , "?c=pluglist&a=upload");void(0);') 上传插件
+    table.table.table-hover.table-plugin
+      thead
+        tr
+          th(width='100') 名称
+          th(width='40') 版本
+          th 简介
+          th(width='60') 状态
+          tr
+      tbody
+      - for plugin in plugins
+        tr
+          td #{plugin.name}
+          td.tcenter #{plugin.version}
+          td 
+            | #{plugin.description} - by 
+            a(href='mailto:#{plugin.email}', target='_blank') #{plugin.author}
+          td
+            label.checkbox
+              input(type='checkbox', onclick='onclick')
+              
+   

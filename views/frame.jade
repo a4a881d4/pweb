@@ -1,0 +1,59 @@
+!!! 5
+html(lang='zh-cn')
+  head
+    meta(charset='utf-8')
+    title
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='static/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='static/stylesheets/style.css', type='text/css')
+    link(rel='stylesheet', href='static/stylesheets/pure-min.css', type='text/css')
+    style(type='text/css')
+      body
+      {
+      padding-top: 60px;
+      padding-bottom: 40px;
+      }
+      .sidebar-nav
+      {
+      padding: 9px 0;
+      }
+    link(href='static/stylesheets/bootstrap-responsive.min.css', rel='stylesheet')
+    script(src='static/javascripts/jquery.min.js')
+    script(src='static/javascripts/bootstrap.min.js')
+    script(src='static/javascripts/apis.js')
+  body
+    .navbar.navbar-fixed-top
+      .navbar-inner.navbar-tt
+        .container
+          .mycontainer
+            a.brand(href='/dashboard', title='Example Web')
+            div
+              ul#tt_menu_list.nav
+                - each menu in menus
+                  - if(menu.active)
+                    li.active
+                      a(href=menu.href,title=menu.title )
+                        img(src=menu.img)
+                  - else
+                    li
+                      a(href=menu.href,title=menu.title )
+                        img(src=menu.img)
+            #top_dropdown.btn-group.pull-right.nav-collapse
+              button#top_user_name.btn.noblue(data-toggle='dropdown') #{lang['SETTINGS']} 
+              button#top_user_menu.btn.dropdown-toggle(data-toggle='dropdown')
+                span.caret
+              ul.dropdown-menu#settings_menu
+    .container-fluid
+      .container.mainbody#mainbody
+
+      .container.ft
+        a(href='http://127.0.0.1:5000', target='new') Example Web 
+        | -
+        a(href='http://127.0.0.1:5000', target='new') Tsinghua Univ.
+        | -zhaom ? 2013~
+script
+  $(function() {
+  load_settings('#{my}');
+  load_mainframe('#{my}');
+  });
+  
