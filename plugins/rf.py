@@ -9,3 +9,9 @@ sRf = """{ "version" : "1"
 }"""
 
 settings = json.loads(sRf)
+
+def init_globe( globe_setting ):
+  if globe_setting.has_key("menus"):
+    rfmenu={'href':'/rf','title':'rf setting','img':'static/images/tt2.menu.inbox.png'}
+    globe_setting["menus"]["RFSET"]=rfmenu
+    

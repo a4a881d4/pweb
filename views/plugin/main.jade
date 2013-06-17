@@ -22,6 +22,10 @@
             a(href='mailto:#{plugin.email}', target='_blank') #{plugin.author}
           td
             label.checkbox
-              input(type='checkbox', onclick='onclick')
+              - if plugin.ID in plugin_settings and plugin_settings[plugin.ID]=="active"
+                input(type='checkbox', onclick='plugin_turn("#{plugin.ID}" , "#{plugin.name}" )', checked='true') 
+              - else
+                input(type='checkbox', onclick='plugin_turn("#{plugin.ID}" , "#{plugin.name}" )')
+              启用 
               
    
