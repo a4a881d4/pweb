@@ -23,9 +23,7 @@
           td
             label.checkbox
               - if plugin.ID in plugin_settings and plugin_settings[plugin.ID]=="active"
-                input(type='checkbox', onclick='plugin_turn("#{plugin.ID}" , "#{plugin.name}" )', checked='true') 
+                input(type='checkbox', onclick="plugin_turn('#{plugin.ID}' , '#{plugin.name}' )", checked='true') 
               - else
-                input(type='checkbox', onclick='plugin_turn("#{plugin.ID}" , "#{plugin.name}" )')
-              启用 
-              
-   
+                input(type='checkbox', onclick="plugin_turn('#{plugin.ID}' , '#{plugin.name}' )")
+              启用
