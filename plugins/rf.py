@@ -4,6 +4,7 @@ from pweb import app
 from pweb.globe import get_globe
 from pweb.utils import build_menu
 from flask import render_template
+from pweb.purelayoutapi import get_globe as pure_globe
 
 sRf = """{ "version" : "1"
          , "name" : "射频参数"
@@ -14,7 +15,7 @@ sRf = """{ "version" : "1"
          , "menu" : { "href":"/rf"
                     , "title":"rf setting"
                     , "img":"static/images/tt2.menu.inbox.png"
-                    , "template":"plugins/rf.jade"
+                    , "template":"views/purelayout.jade"
                     }
 }"""
 
@@ -29,9 +30,19 @@ def init_globe( globe_setting ):
       </li>
       <li class="divider"></li>
       """
-    
+  _pure = pure_globe()
+  if _pure.has_key("special_nav"):
+    _pure["special_nav"][settings["ID"]] = """
+      <li><a href="javascript:show_float_box('set t freq', '/getsetting/tfreq');void(0);" id="tfreqview">T freq %lfM</a>
+      </li>
+    """ % 1980.0
+  print _pure["special_nav"]
+  
 @app.route('/rf')
 def rf():
   globe_settings=get_globe()
   return render_template('views/frame.jade',lang=globe_settings["lang"],menus=build_menu('RFSET'),my='RFSET')
+@app.route('/getsetting/tfreq')
+def tfreq():
+  return render_template('plugins/rftset.jade')
 

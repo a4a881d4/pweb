@@ -26,6 +26,7 @@ class LoadMainFrame(MethodView):
                           , lang=lang
                           , plugins=plugins
                           , plugin_settings=plugin_settings()
+                          , my=module
                           );
 app.add_url_rule('/load_mainframe',view_func=LoadMainFrame.as_view('load_mainframe'))
 

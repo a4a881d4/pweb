@@ -1879,15 +1879,15 @@ a {
 }
 #nav {
     margin-left:-500px; /* "left col (nav + list)" width */
-    width:150px;
+    width:200px;
     background: rgb(37, 42, 58);
     text-align: center;
     padding: 2em 0;
 }
 
 #list {
-    margin-left: -350px;
-    width:350px;
+    margin-left: -300px;
+    width:300px;
     border-right: 1px solid #ddd;
 }
 

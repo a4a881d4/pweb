@@ -2,10 +2,11 @@ from pweb import app
 from flask import render_template
 from pweb.globe import get_globe
 from pweb.utils import build_menu
-from pweb.plugin import init_globe
+from pweb.plugin import init_globe as _init_globe
 
 
-init_globe()
+def init_globe():
+  _init_globe()
 
 @app.route('/')
 def hello_world():

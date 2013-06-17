@@ -1,0 +1,17 @@
+#layout.pure-g-r.content
+  #nav.pure-u
+    a.nav-menu-button(href='#nav') Menu
+    .nav-inner
+      .pure-menu.pure-menu-open
+        ul#navitem
+  #list.pure-u
+    .content#listitem
+  #main.pure-u
+    .content#mainitem
+script
+  $(function() {
+  load_html_byID('/pureload/nav?my=#{my}','#navitem');
+  load_html_byID('/pureload/list?my=#{my}','#listitem');
+  load_html_byID('/pureload/main?my=#{my}','#mainitem');
+  });
+  

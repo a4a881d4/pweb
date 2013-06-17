@@ -51,6 +51,11 @@ html(lang='zh-cn')
         | -
         a(href='http://127.0.0.1:5000', target='new') Tsinghua Univ.
         | -zhaom ? 2013~
+    .modal.hide.fade#float_box
+      .modal-header
+        button.close( type="button", data-dismiss="modal", aria-hidden="true" ) &times;
+        h3#float_box_title 正在载入
+        .modal-body
 script
   $(function() {
   load_settings('#{my}');
