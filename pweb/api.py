@@ -4,6 +4,7 @@ from pweb.zh_cn import lang
 from pweb.plugin import plugins, plugin_settings, save_plugin_settings, init_globe 
 import json
 from pweb import app
+from pweb.globe import get_globe
 
 class LoadSettings(MethodView):
   def get(self):
