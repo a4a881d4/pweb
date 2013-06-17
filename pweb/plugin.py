@@ -1,7 +1,8 @@
 import os
 from import_file import import_file
 import json
-from pweb.globe import default_globe, get_globe
+from pweb.globe import default_globe
+from pweb.globe import get_globe
 
 mplugins = {}
 plugins = []
@@ -27,5 +28,3 @@ def init_globe():
     if k in settings and settings[k]=="active":
       if mplugins[k].init_globe:
         mplugins[k].init_globe( globe_settings )
-  print globe_settings["menus"]
-

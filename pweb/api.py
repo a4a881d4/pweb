@@ -9,13 +9,20 @@ from pweb.globe import get_globe
 class LoadSettings(MethodView):
   def get(self):
     module = request.args.get('my','')
-    return render_template('settings.jade',lang=lang)
+    g = get_globe()
+    if module in g["special_setting_menu"]:
+      return g["special_setting_menu"][module]+g["globe_setting_menu"]
+    else:
+      return g["globe_setting_menu"]
+      
 app.add_url_rule('/load_settings',view_func=LoadSettings.as_view('load_settings'))
 
 class LoadMainFrame(MethodView):
   def get(self):
     module = request.args.get('my','')
-    return render_template( module+'/main.jade'
+    g = get_globe()
+    menu = g["menus"][module]
+    return render_template( menu["template"]
                           , lang=lang
                           , plugins=plugins
                           , plugin_settings=plugin_settings()
